@@ -1,1 +1,132 @@
-<p>login works!</p>
+<section class="w-full h-full glass flex flex-col bg-base-200 flex items-center justify-center">
+    <form class="flex flex-col p-3" *ngIf="item == 'login'; else register " [formGroup]="loginForm" (submit)="login()">
+        <span class="text-3xl text-center text-white">Login</span>
+        <div class="flex border rounded flex-col p-3 gap-1   w-fit justify-center items-center">
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Username"
+                    formControlName="userName">
+                <span class="text-red-600 font-bold" *ngIf="loginForm.get('userName')?.invalid &&
+                    (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="loginForm.get('userName')?.invalid &&
+                    (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched ||
+                     isSubmitted)"> User name is required</span>
+                    <span
+                        *ngIf="loginForm.get('userName')?.errors?.['minlength'] || loginForm.get('userName')?.errors?.['maxlength']">
+                        User name length must be more than 2 characcters and less than 15 character</span>
+                </span>
+            </div>
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Password"
+                    formControlName="password">
+                <span class="text-red-600 font-bold" *ngIf="loginForm.get('password')?.invalid &&
+                    (loginForm.get('password')?.dirty || loginForm.get('password')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="loginForm.get('password')?.invalid &&
+                    (loginForm.get('password')?.dirty || loginForm.get('password')?.touched ||
+                     isSubmitted)"> Password is required</span>
+                    <span
+                        *ngIf="loginForm.get('password')?.errors?.['minlength'] || loginForm.get('password')?.errors?.['maxlength']">
+                        Password length must be more than 8 characcters and less than 15 character</span>
+                </span>
+            </div>
+            <button type="submit">Submit</button>
+            <a (click)="item = 'register' " >register</a>
+        </div>
+    </form>
+
+    <ng-template #register>
+        <form class="flex flex-col p-3" [formGroup]="registerForm" (submit)="login()">
+            <span class="text-3xl text-center text-white">Register</span>
+            <div class="flex border rounded flex-col p-3 gap-1 h-96  w-fit justify-center items-center">
+                <div class="flex flex-col w-fit">
+                    <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Username"
+                        formControlName="firstname">
+                    <span class="text-red-600 font-bold" *ngIf="registerForm.get('firstname')?.invalid &&
+                    (registerForm.get('firstname')?.dirty || registerForm.get('firstname')?.touched ||
+                     isSubmitted)">
+                        <span class="text-red-600 font-bold" *ngIf="registerForm.get('firstname')?.invalid &&
+                    (registerForm.get('firstname')?.dirty || registerForm.get('firstname')?.touched ||
+                     isSubmitted)"> User name is required</span>
+                        <span
+                            *ngIf="registerForm.get('firstname')?.errors?.['minlength'] || registerForm.get('firstname')?.errors?.['maxlength']">
+                            User name length must be more than 2 characcters and less than 15 character</span>
+                    </span>
+                </div>
+                <div class="flex flex-col w-fit">
+                    <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="lastName"
+                        formControlName="lastName">
+                    <span class="text-red-600 font-bold" *ngIf="registerForm.get('lastName')?.invalid &&
+                    (registerForm.get('lastName')?.dirty || registerForm.get('lastName')?.touched ||
+                     isSubmitted)">
+                        <span class="text-red-600 font-bold" *ngIf="registerForm.get('lastName')?.invalid &&
+                    (registerForm.get('lastName')?.dirty || registerForm.get('lastName')?.touched ||
+                     isSubmitted)"> User name is required</span>
+                        <span
+                            *ngIf="registerForm.get('lastName')?.errors?.['minlength'] || registerForm.get('lastName')?.errors?.['maxlength']">
+                            User name length must be more than 2 characcters and less than 15 character</span>
+                    </span>
+                </div>
+                <div class="flex flex-col w-fit">
+                    <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="email"
+                        formControlName="email">
+                    <span class="text-red-600 font-bold" *ngIf="registerForm.get('email')?.invalid &&
+                    (registerForm.get('email')?.dirty || registerForm.get('email')?.touched ||
+                     isSubmitted)">
+                        <span class="text-red-600 font-bold" *ngIf="registerForm.get('email')?.invalid &&
+                    (registerForm.get('email')?.dirty || registerForm.get('email')?.touched ||
+                     isSubmitted)"> User name is required</span>
+                        <span
+                            *ngIf="registerForm.get('email')?.errors?.['minlength'] || registerForm.get('email')?.errors?.['maxlength']">
+                            User name length must be more than 2 characcters and less than 15 character</span>
+                    </span>
+                </div>
+                <div class="flex flex-col w-fit">
+                    <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="phone"
+                        formControlName="phone">
+                    <span class="text-red-600 font-bold" *ngIf="registerForm.get('phone')?.invalid &&
+                    (registerForm.get('phone')?.dirty || registerForm.get('phone')?.touched ||
+                     isSubmitted)">
+                        <span class="text-red-600 font-bold" *ngIf="registerForm.get('phone')?.invalid &&
+                    (registerForm.get('phone')?.dirty || registerForm.get('phone')?.touched ||
+                     isSubmitted)"> User name is required</span>
+                        <span
+                            *ngIf="registerForm.get('phone')?.errors?.['minlength'] || registerForm.get('phone')?.errors?.['maxlength']">
+                            User name length must be more than 2 characcters and less than 15 character</span>
+                    </span>
+                </div>
+                <div class="flex flex-col w-fit">
+                    <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Password"
+                        formControlName="password">
+                    <span class="text-red-600 font-bold" *ngIf="registerForm.get('password')?.invalid &&
+                    (registerForm.get('password')?.dirty || registerForm.get('password')?.touched ||
+                     isSubmitted)">
+                        <span class="text-red-600 font-bold" *ngIf="registerForm.get('password')?.invalid &&
+                    (registerForm.get('password')?.dirty || registerForm.get('password')?.touched ||
+                     isSubmitted)"> Password is required</span>
+                        <span
+                            *ngIf="registerForm.get('password')?.errors?.['minlength'] || registerForm.get('password')?.errors?.['maxlength']">
+                            Password length must be more than 8 characcters and less than 15 character</span>
+                    </span>
+                </div>
+                <div class="flex flex-col w-fit">
+                    <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="confirmPassword"
+                        formControlName="confirmPassword">
+                    <span class="text-red-600 font-bold" *ngIf="registerForm.get('confirmPassword')?.invalid &&
+                    (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched ||
+                     isSubmitted)">
+                        <span class="text-red-600 font-bold" *ngIf="registerForm.get('confirmPassword')?.invalid &&
+                    (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched ||
+                     isSubmitted)"> User name is required</span>
+                        <span
+                            *ngIf="registerForm.get('confirmPassword')?.errors?.['minlength'] || registerForm.get('confirmPassword')?.errors?.['maxlength']">
+                            User name length must be more than 2 characcters and less than 15 character</span>
+                    </span>
+                </div>
+                <button type="submit">Submit</button>
+                <a (click)="item = 'login' ">Login</a>
+            </div>
+        </form>
+    </ng-template>
+
+</section>

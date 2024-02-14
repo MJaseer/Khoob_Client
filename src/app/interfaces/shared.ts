@@ -1,12 +1,11 @@
-export interface LoginUser {
-    email:  string,
-    password:  string
-}
-
 export interface SignupUser {
-    userName:  string,
-    email:  string,
-    password:  string
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    address?: any;
+    phone: number;
+    createdAt?: Date
 }
 
 export interface loginRes {
@@ -14,8 +13,7 @@ export interface loginRes {
     token:  string
 }
 
-export interface passWord {
-    appName:  string,
+export interface loginReq {
     userName:  string,
     password:  string,
 }

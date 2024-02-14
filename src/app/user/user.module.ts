@@ -20,6 +20,10 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { IconsProviderModule } from '../icons-provider.module';
 import { FadeInDirective } from '../directives/gsap/fade-in.directive';
 import { MatDialogModule } from '@angular/material/dialog'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
+
 @NgModule({
   declarations: [
     ProductUserComponent,
@@ -43,7 +47,11 @@ import { MatDialogModule } from '@angular/material/dialog'
     NzMenuModule,
     IconsProviderModule,
     FadeInDirective,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class UserModule { }

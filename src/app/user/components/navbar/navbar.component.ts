@@ -16,7 +16,8 @@ export class NavbarComponent {
     const enterAnimationDuration = '300ms'
     const exitAnimationDuration = '300ms'
     this.dialog.open(LoginComponent, {
-      width: '250px',
+      width:'400px',
+      minHeight:'fit-content',
       enterAnimationDuration,
       exitAnimationDuration
     });
