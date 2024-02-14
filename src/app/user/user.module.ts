@@ -11,10 +11,14 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { CheckoutclearComponent } from './components/checkoutclear/checkoutclear.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
-
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { IconsProviderModule } from '../icons-provider.module';
+import { FadeInDirective } from '../directives/gsap/fade-in.directive';
 
 @NgModule({
   declarations: [
@@ -27,13 +31,18 @@ import { RegisterUserComponent } from './components/register-user/register-user.
     MyOrdersComponent,
     CartComponent,
     CheckoutComponent,
-    CheckoutclearComponent,
     LoginComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    NzLayoutModule,
+    NzMenuModule,
+    IconsProviderModule,
+    FadeInDirective
   ]
 })
 export class UserModule { }
