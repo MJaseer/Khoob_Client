@@ -19,7 +19,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { IconsProviderModule } from '../icons-provider.module';
 import { FadeInDirective } from '../directives/gsap/fade-in.directive';
-
+import { MatDialogModule } from '@angular/material/dialog'
 @NgModule({
   declarations: [
     ProductUserComponent,
@@ -42,7 +42,8 @@ import { FadeInDirective } from '../directives/gsap/fade-in.directive';
     NzLayoutModule,
     NzMenuModule,
     IconsProviderModule,
-    FadeInDirective
+    FadeInDirective,
+    MatDialogModule
   ]
 })
 export class UserModule { }

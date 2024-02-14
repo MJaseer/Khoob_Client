@@ -22,7 +22,8 @@ registerLocaleData(en);
     AppRoutingModule,
     IconsProviderModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
