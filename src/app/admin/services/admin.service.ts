@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { loginReq, loginRes,SignupRes,SignupUser } from '../../interfaces/shared';
+import { loginReq, loginRes, SignupUser, SignupRes } from '../../interfaces/shared';
 import { environment } from '../../../environments/environment.development'
 
-const url = environment.url
+const url = environment.adminurl
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AdminService {
 
   constructor(private http:HttpClient) { }
 
@@ -18,6 +18,4 @@ export class UserService {
   register(data:SignupUser ) {
     return this.http.post<SignupRes>(`${url}/register`, data, { withCredentials: true })
   }
-
-
 }

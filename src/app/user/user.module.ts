@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
+import { NgOtpInputModule } from 'ng-otp-input';
 
 @NgModule({
   declarations: [
@@ -50,8 +51,8 @@ import { MatInputModule } from '@angular/material/input'
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgOtpInputModule
   ]
 })
 export class UserModule { }

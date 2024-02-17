@@ -9,6 +9,9 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { UsersComponent } from './components/users/users.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -23,7 +26,11 @@ import { RegisterAdminComponent } from './components/register-admin/register-adm
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    NgOtpInputModule
   ]
 })
 export class AdminModule { }
