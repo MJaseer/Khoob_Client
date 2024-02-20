@@ -16,7 +16,7 @@ export class HelperService {
   }
 
   getToken(): (null | loginRes) {
-    const data = localStorage.getItem('data');
+    const data = localStorage.getItem('dataTokenKhoob');
     if (data) {
       return JSON.parse(data)
     }
@@ -24,7 +24,7 @@ export class HelperService {
   }
 
   deleteToken() {
-    localStorage.removeItem('data')
+    localStorage.removeItem('dataTokenKhoob')
     this.router.navigate(['/'])
   }
 

@@ -23,4 +23,21 @@ export interface loginReq {
     password:  string,
 }
 
+export interface ProductReq {
+    name: string;
+    author: string;
+    category: string;
+    description: string;
+    isAvailable: boolean;
+    image: any[];
+}
 
+export interface ProductRes {
+    name: string;
+    author: string;
+    category: string;
+    description: string;
+    isAvailable: boolean;
+    image: any[];
+    createdAt?: Date
+}

@@ -1,1 +1,103 @@
-<p>login-admin works!</p>
+<section class="w-full h-full glass flex flex-col bg-base-200 flex items-center justify-center">
+    <form class="flex flex-col p-3" *ngIf="item == 'login';  " [formGroup]="loginForm" (submit)="login()">
+        <span class="text-3xl text-center text-white">Login</span>
+        <div class="flex border rounded flex-col p-3 gap-1   w-fit justify-center items-center">
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="email" placeholder="E-mail"
+                    formControlName="email">
+                <span class="text-red-600 font-bold" *ngIf="loginForm.get('email')?.invalid &&
+                    (loginForm.get('email')?.dirty || loginForm.get('email')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="loginForm.get('email')?.invalid &&
+                    (loginForm.get('email')?.dirty || loginForm.get('email')?.touched ||
+                     isSubmitted)"> E-mail is required</span>
+                </span>
+            </div>
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Password"
+                    formControlName="password">
+                <span class="text-red-600 font-bold" *ngIf="loginForm.get('password')?.invalid &&
+                    (loginForm.get('password')?.dirty || loginForm.get('password')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="loginForm.get('password')?.invalid &&
+                    (loginForm.get('password')?.dirty || loginForm.get('password')?.touched ||
+                     isSubmitted)"> Password is required</span>
+                    <span
+                        *ngIf="loginForm.get('password')?.errors?.['minlength'] || loginForm.get('password')?.errors?.['maxlength']">
+                        Password length must be more than 8 characcters and less than 15 character</span>
+                </span>
+            </div>
+            <button type="submit">Submit</button>
+            <a (click)="item = 'numberlogin' ">Login with phone</a>
+        </div>
+    </form>
+
+    <form class="flex flex-col p-3" *ngIf="item == 'numberlogin';  " [formGroup]="loginFormPhone" (submit)="login()">
+        <span class="text-3xl text-center text-white">Login</span>
+        <div class="flex border rounded flex-col p-3 gap-1   w-fit justify-center items-center">
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="tel" placeholder="Phone"
+                    formControlName="Phone number">
+                <span class="text-red-600 font-bold" *ngIf="loginFormPhone.get('phone')?.invalid &&
+                    (loginFormPhone.get('phone')?.dirty || loginFormPhone.get('phone')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="loginFormPhone.get('phone')?.invalid &&
+                    (loginFormPhone.get('phone')?.dirty || loginFormPhone.get('phone')?.touched ||
+                     isSubmitted)"> Phone number is required</span>
+                     <span
+                     *ngIf="loginForm.get('phone')?.errors?.['minlength'] || loginForm.get('phone')?.errors?.['maxlength']">
+                     Password length must be 10 digits</span>
+                </span>
+            </div>
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Password"
+                    formControlName="password">
+                <span class="text-red-600 font-bold" *ngIf="loginFormPhone.get('password')?.invalid &&
+                    (loginFormPhone.get('password')?.dirty || loginFormPhone.get('password')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="loginFormPhone.get('password')?.invalid &&
+                    (loginFormPhone.get('password')?.dirty || loginFormPhone.get('password')?.touched ||
+                     isSubmitted)"> Phone number is required</span>
+                    <span
+                        *ngIf="loginFormPhone.get('password')?.errors?.['minlength'] || loginFormPhone.get('password')?.errors?.['maxlength']">
+                        Password length must be more than 8 characcters and less than 15 character</span>
+                </span>
+            </div>
+            <button type="submit">Submit</button>
+            <a (click)="item = 'numberlogin' ">Login with phone</a>
+            <a (click)="item = 'otplogin' ">Login with Mobile number otp</a>
+        </div>
+    </form>
+
+    <form class="flex flex-col p-3" *ngIf="item == 'otplogin';  " [formGroup]="loginFormOTP" (submit)="login()">
+        <span class="text-3xl text-center text-white">Login</span>
+        <div class="flex border rounded flex-col p-3 gap-1   w-fit justify-center items-center">
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="tel" placeholder="Phone number"
+                    formControlName="phone">
+                <span class="text-red-600 font-bold" *ngIf="loginFormOTP.get('phone')?.invalid &&
+                    (loginFormOTP.get('phone')?.dirty || loginFormOTP.get('phone')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="loginForm.get('phone')?.invalid &&
+                    (loginFormOTP.get('phone')?.dirty || loginFormOTP.get('phone')?.touched ||
+                     isSubmitted)"> Phone number is required</span>
+                     <span
+                     *ngIf="loginForm.get('phone')?.errors?.['minlength'] || loginForm.get('phone')?.errors?.['maxlength']">
+                     Password length must be 10 digits</span>
+                </span>
+            </div>
+            <button [disabled]="!loginFormOTP.valid" role="button" (click)="item = 'otp' ">Submit</button>
+            <a (click)="item = 'login' ">Login with email</a>
+            <a (click)="item = 'numberlogin' ">Login with password </a>
+        </div>
+    </form>
+
+    <form class="space-y-4 md:space-y-6" *ngIf="item == 'otp';  " (ngSubmit)="otpValidater()">
+        <div>
+            <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="configOptions"></ng-otp-input>
+        </div>
+        <button type="submit"
+            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Submit</button>
+
+    </form>
+</section>

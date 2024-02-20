@@ -11,12 +11,12 @@ export class HelperService {
 
 
   setToken(data: loginRes) {
-    localStorage.removeItem('dataTokenKhoob')
+    localStorage.removeItem('dataAdminTokenKhoob')
     return localStorage.setItem('data', JSON.stringify(data))
   }
 
   getToken(): (null | loginRes) {
-    const data = localStorage.getItem('data');
+    const data = localStorage.getItem('dataAdminTokenKhoob');
     if (data) {
       return JSON.parse(data)
     }
@@ -24,7 +24,7 @@ export class HelperService {
   }
 
   deleteToken() {
-    localStorage.removeItem('data')
+    localStorage.removeItem('dataAdminTokenKhoob')
     this.router.navigate(['/'])
   }
 

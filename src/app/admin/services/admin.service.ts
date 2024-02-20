@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { loginReq, loginRes, SignupUser, SignupRes } from '../../interfaces/shared';
+import { loginReq, loginRes, ProductReq, ProductRes } from '../../interfaces/shared';
 import { environment } from '../../../environments/environment.development'
 
 const url = environment.adminurl
@@ -9,13 +9,15 @@ const url = environment.adminurl
 })
 export class AdminService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   login(data: loginReq) {
     return this.http.post<loginRes>(`${url}/login`, data, { withCredentials: true })
   }
 
-  register(data:SignupUser ) {
-    return this.http.post<SignupRes>(`${url}/register`, data, { withCredentials: true })
+
+
+  addProduct(data: ProductReq) {
+    return this.http.post<ProductRes>(`${url}/register`, data, { withCredentials: true })
   }
 }

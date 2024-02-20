@@ -1,1 +1,75 @@
-<p>products works!</p>
+<section class="w-full h-full glass flex flex-col bg-base-200 flex items-center justify-center">
+    <form class="flex flex-col p-3"  [formGroup]="productForm" (submit)="addProduct()" >
+        <span class="text-3xl text-center text-white">Login</span>
+        <div class="flex border rounded flex-col p-3 gap-1   w-fit justify-center items-center">
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Name"
+                    formControlName="name">
+                <span class="text-red-600 font-bold" *ngIf="productForm.get('name')?.invalid &&
+                    (productForm.get('name')?.dirty || productForm.get('name')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="productForm.get('name')?.invalid &&
+                    (productForm.get('name')?.dirty || productForm.get('name')?.touched ||
+                     isSubmitted)"> Name is required</span>
+                </span>
+            </div>
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="author"
+                    formControlName="author">
+                <span class="text-red-600 font-bold" *ngIf="productForm.get('author')?.invalid &&
+                    (productForm.get('author')?.dirty || productForm.get('author')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="productForm.get('author')?.invalid &&
+                    (productForm.get('author')?.dirty || productForm.get('author')?.touched ||
+                     isSubmitted)"> Author is required</span>
+                    <!-- <span
+                        *ngIf="productForm.get('author')?.errors?.['minlength'] || productForm.get('author')?.errors?.['maxlength']">
+                        author length must be more than 8 characcters and less than 15 character</span> -->
+                </span>
+            </div>
+            <div class="flex flex-col w-fit">
+                <textarea cols="30" rows="10" class="rounded bg-white px-2  h-10 border-0" type="text" placeholder="Description"
+                    formControlName="description"> </textarea>
+                <span class="text-red-600 font-bold" *ngIf="productForm.get('description')?.invalid &&
+                    (productForm.get('description')?.dirty || productForm.get('description')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="productForm.get('description')?.invalid &&
+                    (productForm.get('description')?.dirty || productForm.get('description')?.touched ||
+                     isSubmitted)"> description is required</span>
+                    <!-- <span
+                        *ngIf="productForm.get('description')?.errors?.['minlength'] || productForm.get('description')?.errors?.['maxlength']">
+                        description length must be more than 8 characcters and less than 15 character</span> -->
+                </span>
+            </div>
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="text" placeholder="Category"
+                    formControlName="category">
+                <span class="text-red-600 font-bold" *ngIf="productForm.get('category')?.invalid &&
+                    (productForm.get('category')?.dirty || productForm.get('category')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="productForm.get('category')?.invalid &&
+                    (productForm.get('category')?.dirty || productForm.get('category')?.touched ||
+                     isSubmitted)"> category is required</span>
+                    <!-- <span
+                        *ngIf="productForm.get('category')?.errors?.['minlength'] || productForm.get('category')?.errors?.['maxlength']">
+                        category length must be more than 8 characcters and less than 15 character</span> -->
+                </span>
+            </div>
+            <div class="flex flex-col w-fit">
+                <input class="rounded bg-white px-2 h-10 border-0" type="file" placeholder="File"
+                    formControlName="image" multiple (change)="uploadFiles($event)">
+                <span class="text-red-600 font-bold" *ngIf="productForm.get('image')?.invalid &&
+                    (productForm.get('image')?.dirty || productForm.get('image')?.touched ||
+                     isSubmitted)">
+                    <span class="text-red-600 font-bold" *ngIf="productForm.get('image')?.invalid &&
+                    (productForm.get('image')?.dirty || productForm.get('image')?.touched ||
+                     isSubmitted)"> image is required</span>
+                    <!-- <span
+                        *ngIf="productForm.get('image')?.errors?.['minlength'] || productForm.get('image')?.errors?.['maxlength']">
+                        image length must be more than 8 characcters and less than 15 character</span> -->
+                </span>
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</section>

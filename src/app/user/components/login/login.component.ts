@@ -37,7 +37,7 @@ export class LoginComponent {
   })
 
   loginFormOTP = this.formBuilder.group({
-    phone: ['', [Validators.required]],
+    phone: [0, [Validators.required, Validators.minLength(9), Validators.maxLength(11)]],
     otp: ['']
   })
 
